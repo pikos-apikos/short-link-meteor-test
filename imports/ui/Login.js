@@ -23,7 +23,7 @@ export default class Login extends React.Component {
         { email }, password,  
         (err) => {
 
-            console.log('login callback:', err); 
+            // console.log('login callback:', err); 
 
             if(err){
                 this.setState({
@@ -40,17 +40,20 @@ export default class Login extends React.Component {
 
   render(){
     return ( 
-      <div>
-        <h1>Log in page</h1>
-        {this.state.error ? <p>{this.state.error}</p> : undefined}     
-        <form onSubmit={this.onSubmit.bind(this)} noValidate>
-            <input type="email" ref="email" name="email" placeholder="E-mail" />
-            <input type="password" ref="password" name="password" placeholder="Password" />
-            <button>Login</button>
+      <div className="boxed-view">
+          <div className="boxed-view__box">
+                <h1>Log in page</h1>
+                {this.state.error ? <p>{this.state.error}</p> : undefined}     
+                <form onSubmit={this.onSubmit.bind(this)} noValidate className="boxed-view__form">
+                    <input type="email" ref="email" name="email" placeholder="E-mail" />
+                    <input type="password" ref="password" name="password" placeholder="Password" />
+                    <button className="button">Login</button>
 
-        </form>
-        
-        <Link to="signup">Create New accout? </Link>
+                </form>
+                
+                <Link to="signup">Create New accout? </Link>
+          </div>
+       
 
       </div>        
     )

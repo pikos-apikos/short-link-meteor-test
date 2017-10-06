@@ -8,6 +8,7 @@ import '../imports/startup/simple-schema-configuration';
 
 Meteor.startup(() => {
 
+
     WebApp.connectHandlers.use((req, res, next) => {
         
         // console.log(req.url, req.headers, req.query); 
@@ -30,6 +31,9 @@ Meteor.startup(() => {
                 // res.write('asd')
                 // END HTTP Request                
                 res.end();
+
+                Meteor.call('links.trackVisit', _id); 
+
             } 
 
         }
